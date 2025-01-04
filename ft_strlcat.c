@@ -6,7 +6,7 @@
 /*   By: kyamada <kyamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/03 14:49:23 by kyamada           #+#    #+#             */
-/*   Updated: 2024/12/01 15:14:15 by kyamada          ###   ########.fr       */
+/*   Updated: 2025/01/02 13:19:34 by kyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ size_t	ft_strlcat(char *dst, const char *src, size_t size)
 		j++;
 	k = i + j;
 	if (i >= size)
-		return ((int) j + size);
+		return (j + size);
 	j = 0;
 	while (src[j] != '\0' && i < size - 1)
 	{

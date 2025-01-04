@@ -6,25 +6,27 @@
 /*   By: kyamada <kyamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 14:09:58 by kyamada           #+#    #+#             */
-/*   Updated: 2024/11/30 13:40:48 by kyamada          ###   ########.fr       */
+/*   Updated: 2025/01/02 11:29:32 by kyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
+#include<stdlib.h>
+
 int	ft_atoi(const char *nptr)
 {
-	int		i;
-	int		j;
-	int		k;
+	size_t	i;
+	int		sign;
+	int		output;
 
 	i = 0;
-	j = 1;
-	k = 0;
+	sign = 1;
+	output = 0;
 	while (nptr[i] == 32 || (nptr[i] >= 9 && nptr[i] <= 13))
 		i++;
 	if (nptr[i] == '-')
 	{
 		i++;
-		j = -1;
+		sign = -1;
 		if (nptr[i] == '+')
 			return (0);
 	}
@@ -32,10 +34,10 @@ int	ft_atoi(const char *nptr)
 		i++;
 	while (nptr[i] >= 48 && nptr[i] <= 57)
 	{
-		k = k * 10 + (nptr[i] - '0');
+		output = output * 10 + (nptr[i] - '0');
 		i++;
 	}
-	return (k * j);
+	return (output * sign);
 }
 
 // #include <stdio.h>

@@ -6,11 +6,11 @@
 #    By: kyamada <kyamada@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 13:10:03 by kyamada           #+#    #+#              #
-#    Updated: 2024/12/31 14:19:40 by kyamada          ###   ########.fr        #
+#    Updated: 2025/01/02 10:39:43 by kyamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
-NAME = libft
+NAME = libft.a
 TARGET = libft.a
 CC = cc
 CFLAGS = -Wall -Wextra -Werror

@@ -6,15 +6,15 @@
 /*   By: kyamada <kyamada@student.42.fr>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/10 12:02:49 by kyamada           #+#    #+#             */
-/*   Updated: 2024/12/01 17:52:39 by kyamada          ###   ########.fr       */
+/*   Updated: 2025/01/02 11:03:41 by kyamada          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <stdlib.h>
 
-int	ft_intlen(int n)
+size_t	ft_intlen(int n)
 {
-	int	len;
+	size_t	len;
 
 	len = 0;
 	if (n <= 0)
@@ -41,7 +41,7 @@ int	ft_minus(char *str, int n)
 
 char	*ft_itoa(int n)
 {
-	int		len;
+	size_t	len;
 	char	*str;
 
 	len = ft_intlen(n);
