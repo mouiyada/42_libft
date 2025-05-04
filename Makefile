@@ -6,14 +6,14 @@
 #    By: kyamada <kyamada@student.42.fr>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/27 13:10:03 by kyamada           #+#    #+#              #
-#    Updated: 2025/01/02 10:39:43 by kyamada          ###   ########.fr        #
+#    Updated: 2025/05/04 17:27:24 by kyamada          ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 TARGET = libft.a
-CC = cc
-CFLAGS = -Wall -Wextra -Werror
+CC = clang
+CFLAGS = -Wall -Wextra -Werror -g
 SRCS =	ft_strlen.c \
 		ft_strlcpy.c \
 		ft_strlcat.c \
@@ -47,25 +47,40 @@ SRCS =	ft_strlen.c \
 		ft_putchar_fd.c \
 		ft_putstr_fd.c \
 		ft_putendl_fd.c \
-		ft_putnbr_fd.c
+		ft_putnbr_fd.c \
 
-$(NAME): $(SRCS)
+BSRCS	=	ft_lstnew.c \
+       		ft_lstadd_front.c \
+    		ft_lstsize.c \
+   			ft_lstlast.c \
+   			ft_lstadd_back.c \
+   			ft_lstdelone.c \
+			ft_lstclear.c \
+			ft_lstiter.c \
+			ft_lstmap.c
 
-OBJS = $(SRCS:.c=.o)
+OBJS	= ${SRCS:.c=.o}
 
-.PHONY: all
-all: $(TARGET)
+BOBJS	= ${BSRCS:.c=.o}
 
-$(TARGET): $(OBJS)
-	ar rcs $(TARGET) $(OBJS)
+.c.o:
+			${CC} ${CFLAGS} -c $< -o ${<:.c=.o}
 
-.PHONY: clean
+${NAME}:	${OBJS}
+			ar -rcs ${NAME} ${OBJS}
+
+all:		${NAME}
+
 clean:
-	$(RM) $(OBJS)
+	rm -f ${OBJS}
+	rm -f ${BOBJS}
 
-.PHONY: fclean
 fclean: clean
-	$(RM) $(TARGET)
+	rm -f ${NAME}
 
-.PHONY: re
 re: fclean all
+
+bonus: 	${BOBJS}
+	ar -rcs $(NAME) ${BOBJS}
+
+.PHONY: all, bonus, clean, fclean, re
